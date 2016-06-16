@@ -23,7 +23,7 @@ public class MatrixSearch {
                 }
             }
         if(exit){
-
+            find = false;
             SearchToEnd(matrix,newpointlist,word,1);
             if (find){
                 return true;
@@ -35,16 +35,19 @@ public class MatrixSearch {
 
     void SearchToEnd(char[][] matrix, List<int[]> nextpointlist,String word,int k) {
 
-
         if (k==word.length()){
             find = true;
             return;
         }
 
         if (nextpointlist.size()==0){
-            find = false;
+            if(find != true){
+                find = false;
+
+            }
             return;
         }
+
 
         if (nextpointlist.size()>=1) {
             for (int j = 0; j < nextpointlist.size(); j++) {
@@ -75,8 +78,6 @@ public class MatrixSearch {
             }
 
         }
-
-
         return newpointlist;
 
     }
@@ -93,9 +94,10 @@ public class MatrixSearch {
         MatrixSearch matrixSearch = new MatrixSearch();
         System.out.println(matrixSearch.isInMatrix(Matrix,"ack"));
         System.out.println(matrixSearch.isInMatrix(Matrix,"jello"));
-        System.out.println(matrixSearch.isInMatrix(Matrix,"eli"));
+        System.out.println(matrixSearch.isInMatrix(Matrix,"eli"));// get two same first chars of the word from the matrix
         System.out.println(matrixSearch.isInMatrix(Matrix,"apple"));
-        System.out.println(matrixSearch.isInMatrix(Matrix,"jpk"));
+        System.out.println(matrixSearch.isInMatrix(Matrix,"jpk"));//get two same next chars of the word
+        System.out.println(matrixSearch.isInMatrix(Matrix,"jpb"));
 
 
 
